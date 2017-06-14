@@ -13,3 +13,43 @@ CREATE EXTERNAL TABLE uservisits_large (sourceIP STRING,destURL STRING,visitDate
 you can replace `large` into `tiny | small | large | huge | gigantic | bigdata`, which is listed under `http://wj-02:50070/explorer.html#/HiBench/Scan`.
 
 Then you can run sql in spark-sql environment.
+
+```text
+
+Java HotSpot(TM) 64-Bit Server VM 1.8.0_131-b11 on Linux 4.4.30-mod-std-ipv6-64
+Intel(R) Xeon(R) CPU E5-2687W v4 @ 3.00GHz
+in-memory-stock read:                    Best/Avg Time(ms)    Rate(M/s)   Per Row(ns)   Relative
+------------------------------------------------------------------------------------------------
+in-memory-stock                                715 /  721         14.0          71.5       1.0X
+
+Java HotSpot(TM) 64-Bit Server VM 1.8.0_131-b11 on Linux 4.4.30-mod-std-ipv6-64
+Intel(R) Xeon(R) CPU E5-2687W v4 @ 3.00GHz
+in-memory-parquet read:                  Best/Avg Time(ms)    Rate(M/s)   Per Row(ns)   Relative
+------------------------------------------------------------------------------------------------
+in-memory-parquet                             1997 / 2375          5.0         199.7       1.0X
+
+Java HotSpot(TM) 64-Bit Server VM 1.8.0_131-b11 on Linux 4.4.30-mod-std-ipv6-64
+Intel(R) Xeon(R) CPU E5-2687W v4 @ 3.00GHz
+in-memory-windjammer read:               Best/Avg Time(ms)    Rate(M/s)   Per Row(ns)   Relative
+------------------------------------------------------------------------------------------------
+in-memory-windjammer                           725 /  740         13.8          72.5       1.0X
+
+Java HotSpot(TM) 64-Bit Server VM 1.8.0_131-b11 on Linux 4.4.30-mod-std-ipv6-64
+Intel(R) Xeon(R) CPU E5-2687W v4 @ 3.00GHz
+memory-disk-stock read:                  Best/Avg Time(ms)    Rate(M/s)   Per Row(ns)   Relative
+------------------------------------------------------------------------------------------------
+memory-disk-stock                             7772 / 7818         12.9          77.7       1.0X
+
+Java HotSpot(TM) 64-Bit Server VM 1.8.0_131-b11 on Linux 4.4.30-mod-std-ipv6-64
+Intel(R) Xeon(R) CPU E5-2687W v4 @ 3.00GHz
+memory-disk-parquet read:                Best/Avg Time(ms)    Rate(M/s)   Per Row(ns)   Relative
+------------------------------------------------------------------------------------------------
+memory-disk-parquet                         19628 / 19749          5.1         196.3       1.0X
+
+Java HotSpot(TM) 64-Bit Server VM 1.8.0_131-b11 on Linux 4.4.30-mod-std-ipv6-64
+Intel(R) Xeon(R) CPU E5-2687W v4 @ 3.00GHz
+memory-disk-windjammer read:             Best/Avg Time(ms)    Rate(M/s)   Per Row(ns)   Relative
+------------------------------------------------------------------------------------------------
+memory-disk-windjammer                        7510 / 7536         13.3          75.1       1.0X
+
+```
